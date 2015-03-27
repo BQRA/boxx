@@ -1,3 +1,6 @@
+// Created by Bora DAN
+// 27 March 2015
+
 $(function(){
 
 	/////////// menu actions
