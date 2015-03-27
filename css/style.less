@@ -1,0 +1,471 @@
+@import url(http://fonts.googleapis.com/css?family=Arvo);
+
+/* variations */
+.scale(@a) {
+	transform: scale(@a);
+	-moz-transform: scale(@a);
+	-webkit-transform: scale(@a);
+}
+.rotate(@a) {
+	transform: rotate(@a);
+	-moz-transform: rotate(@a);
+	-webkit-transform: rotate(@a);
+}
+
+.transition(@what, @sec) {
+	transition: @what @sec;
+	-moz-transition: @what @sec;
+	-webkit-transition: @what @sec;
+}
+
+@top: 180px;
+@left: 150px;
+/* variations #end */
+
+
+/* animations */
+@-moz-keyframes plop {
+	0% {.scale(0.8);}
+	50% {.scale(1.5);}
+	100% {.scale(1);}
+}
+@-webkit-keyframes plop {
+	0% {.scale(0.8);}
+	50% {.scale(1.5);}
+	100% {.scale(1);}	
+}
+@keyframes plop {
+	0% {.scale(0.8);}
+	50% {.scale(1.5);}
+	100% {.scale(1);}
+}
+
+@-moz-keyframes new {
+	0% {.scale(0);}
+	100% {.scale(1);}
+}
+@-webkit-keyframes new {
+	0% {.scale(0);}
+	100% {.scale(1);}	
+}
+@keyframes new {
+	0% {.scale(0);}
+	100% {.scale(1);}
+}
+/* animations #end */
+
+.plop {
+	animation: plop .2s;
+	-moz-animation: plop .2s;
+	-webkit-animation: plop .2s;
+}
+.new {
+	animation: new .4s;
+	-moz-animation: new .4s;
+	-webkit-animation: new .4s;	
+}
+
+.clear {
+	clear: both;
+	display: inline-block;
+	width: 100%;
+	height: 1px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: url(../images/background.jpg) center top no-repeat transparent !important;
+	height: 100%;
+	font-family: 'Arvo', 'Helvetica Neue', Arial;
+}
+.hr {
+	height: 1px;
+	clear: both;
+	width: 350px;
+	margin: 20px auto 40px auto;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+	font: bold 74px 'Arvo', 'Helvetica Neue', Arial;
+	color: #000;
+	margin: 50px 0;
+}
+h2 {
+	font: italic 74px 'Arvo', 'Helvetica Neue', Arial;
+	color: #fff;
+	margin: 60px 0 80px 0;
+}
+h3 {
+	font: bold 44px 'Arvo', 'Helvetica Neue', Arial;
+	color: #333;
+	margin: 30px 0;	
+}
+.button {
+	font: 48px 'Arvo', 'Helvetica Neue', Arial;
+	padding: 20px 0;
+	margin: 0 0 30px 0;
+	cursor: pointer;
+	&.green,
+	&.black {
+		background-color: #2DB870;
+		border-radius: 100px;
+		font-size: 36px;
+		margin: 0 auto 20px auto;
+		padding: 20px 50px;
+		display: inline-block;
+		color: #fff;
+	}
+	&.black {
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+	&.deactive {
+		opacity: 0.4;
+		cursor: no-drop;
+	}
+}
+
+.game-container {
+	width: 600px;
+	margin:108px auto 20px auto;
+	position: relative;
+	font-size: 0;
+	.col {
+		width: 130px;
+		height: 160px;
+		border-radius: 8px;
+		margin: 10px;
+		display: inline-block;
+		background-color: #000;
+		opacity: 0.15;
+	}
+	ul.numbers {
+		list-style: none;
+		position: absolute;
+		top: 0;
+		left: 10px;
+		right: 10px;
+		bottom: 0;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		.li-bigger-numbers {
+			border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+			color: rgba(0, 0, 0, 0.3);
+			content: '\f005';
+			font-family: 'FontAwesome';
+			font-size: 18px;
+			margin: auto;
+			padding: 0 0 10px 0;
+			display: inline-block;
+			position: absolute;
+			top: 20px;
+			text-align: center;
+			left: 15px;
+			right: 15px;
+			letter-spacing: 6px;
+		}
+		li {
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			margin: 0;
+			padding: 35px 0 0 0;
+			display: inline-block;
+			width: 130px;
+			height: 170px;
+			box-shadow: inset 0 -10px rgba(0, 0, 0, 0.2);
+			text-align: center;
+			display: inline-table;
+			vertical-align: middle;
+			font: 80px 'Arvo', 'Helvetica Neue', Arial;
+			color: rgba(255, 255, 255, 0.5);
+			background-color: #EA5774;
+			border-radius: 8px;
+			overflow: hidden;
+			position: absolute;
+			.transition(all, .2s);
+			&[data-y='1'] { 
+				top: 0;
+			}
+			&[data-y='2'] { 
+				top: @top;
+			}
+			&[data-y='3'] { 
+				top: @top*2;
+			}
+			&[data-y='4'] { 
+				top: @top*3;
+			}
+			&[data-x='1'] { 
+				left: 0;
+			}
+			&[data-x='2'] { 
+				left: @left;
+			}
+			&[data-x='3'] { 
+				left: @left*2;
+			}
+			&[data-x='4'] { 
+				left: @left*3;
+			}
+
+			&.li4 {
+				background-color: #2DB5B8;
+			}
+			&.li8 {
+				background-color: #2D85B8;
+			}
+			&.li16 {
+				background-color: #2D5DB8;
+			}
+			&.li32 {
+				background-color: #3E2DB8;
+			}
+			&.li64 {
+				background-color: #6B2DB8;
+			}
+			&.li128 {
+				background-color: #9D2DB8;
+				font-size: 62px;
+				padding: 50px 0 0 0;
+			}
+			&.li256 {
+				background-color: #B82D9E;
+				font-size: 62px;
+				padding: 50px 0 0 0;
+				&:after {
+					.li-bigger-numbers;
+				}
+			}
+			&.li512 {
+				background-color: #B82D54;
+				font-size: 62px;
+				padding: 50px 0 0 0;
+				&:after {
+					.li-bigger-numbers;
+					content: '\f005 \f005';
+				}
+			}
+			&.li1024 {
+				background-color: #C60E0E;
+				color: rgba(0, 0, 0, 0.3);
+				font-size: 46px;
+				padding: 60px 0 0 0;
+				&:after {
+					.li-bigger-numbers;
+					content: '\f005 \f005 \f005';
+				}
+			}
+			&.li2048 {
+				background-color: #E3FF25;
+				font-size: 0;
+				padding: 90px 0 0 0;
+				&:after {
+					width: 96px;
+					height: 29px;
+					content: '';
+					display: inline-block;
+					background: url(../images/logo.png) 0 0 no-repeat;
+					background-size: 100% 100%;
+					position: relative;
+					z-index: 9;
+				}
+				&:before {
+					font-family: 'FontAwesome';
+					content: '\f005';
+					font-size: 200px;
+					position: absolute;
+					width: 200px;
+					text-align: center;
+					margin: 0 0 0 -100px;
+					left: 50%;
+					top: 20px;
+					z-index: 8;
+					color: rgba(0, 0, 0, 0.1);
+				}
+			}
+
+			&.fork {
+				.plop;
+			}	
+		}
+	}
+}
+
+
+/* screens detail */
+.tools {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 88px;
+	.container {
+		width: 100%;
+		height: 68px;
+		padding: 20px 0 0 0;
+		position: relative;
+		font-size: 0;
+		background-color: rgba(255, 255, 255, 0.5);
+		.half {
+			width: 49%;
+			text-align: center;
+			display: inline-table;
+			strong {
+				display: inline-table;
+				font-size: 20px;
+				font-weight: normal !important;
+				vertical-align: top;
+				padding: 10px 10px 0 0;
+			}
+			span {
+				display: inline-table;
+				font-size: 36px;
+				font-weight: bold;
+			}
+		}
+	}
+}
+.nav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	li {
+		padding: 0;
+		margin: 0;
+	}
+}
+.main-menu {
+	z-index: 99999;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	padding: 100px 20px 20px 20px;
+	.nav {
+		margin: 120px 0 0 0;
+	}
+}
+.playing {
+	display: none;
+}
+#menu,
+.menu {
+	width: 120px;
+	height: 88px;
+	overflow: hidden;
+	position: fixed;
+	left: 50%;
+	margin-left: -60px;
+	top: 0;
+	z-index: 11;
+	text-align: center;
+	span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		cursor: pointer;
+		width: 120px;
+		height: 120px;
+		border-radius: 240px;
+		margin-top: -60px;
+		margin-left: -60px;
+		background-color: rgba(0, 0, 0, 0.5);
+		&:after,
+		&:before {
+			.transition(all, .2s);
+			content: '';
+			display: inline-block;
+			width: 60px;
+			height: 5px;
+			background-color: #fff;
+			position: absolute;
+			left: 50%;
+			margin-left: -30px;
+			top: 48px;
+		}
+		&:before {
+			top: 68px;
+		}
+	}
+	&.opened {
+		background-color: rgba(255, 255, 255, 0.5);
+		width: 100%;
+		left: 0;
+		margin-left: 0;
+		span {
+			&:after {
+				.rotate(45deg);
+				top: 58px;
+			}
+			&:before {
+				.rotate(-45deg);
+				top: 58px;
+			}
+		}
+	}
+}
+.pause {
+	background-color: rgba(255, 255, 255, 0.65);
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	padding: 200px 20px 20px 20px;
+	display: none;
+}
+.gameover {
+	background-color: rgba(243, 92, 92, 0.65);
+	z-index: 9999;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	padding: 100px 20px 20px 20px;
+	display: none;
+}
+.about {
+	z-index: 2;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	padding: 100px 20px 20px 20px;
+	display: none;
+	font-size: 32px;
+}
+
+.text-container {
+	max-width: 640px;
+	font-size: 32px;
+	margin: auto;
+	padding-bottom: 100px;
+	a {
+		color: #2DB870;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
