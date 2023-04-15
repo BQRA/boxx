@@ -6,7 +6,7 @@ Boxx is a game that developed with javascript and HTML5.
 #How to Play
 You must reach 2048 with collect numbers to each other. And you can use arrow keys or swipe with your finger on touchable screens for doing that. When you swipe left, up, right, down, that two boxes with same number are collects. You will get points for each collect action. 
 
-<a href="http://boxx.pikselmatik.com">Play It!</a>
+<a href="http://bqra.github.io/boxx/">Play It!</a>
 
 —
 
